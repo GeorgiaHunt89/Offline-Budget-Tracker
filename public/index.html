@@ -9,10 +9,11 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles.css">
+  <!-- Include Dexie -->
+  <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
 
   <title>Budget Tracker</title>
 </head>
-
 <script>
   // Service Workers Added
   // Check that service workers are supported
@@ -23,6 +24,7 @@
     });
   }
   </script>
+
 <body>
   <div class="wrapper">
     <div class="total">
@@ -54,5 +56,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="index.js"></script>
+  <script src="db.js"></script>
 </body>
 </html>
