@@ -14,7 +14,7 @@
 
 ## Description
 
-An application that allows users track their money and stores data locally to ensure the user can enter transactions when their internet connection is unstable.
+An application that allows users to track their money and stores data locally to ensure the user can enter transactions when their internet connection is unstable.
 
 ## Installation Instructions
 
@@ -52,10 +52,10 @@ Github: [Offline-Budget-Tracker-GitHub](https://github.com/GeorgiaHunt89/offline
     <a href="https://www.javascript.com/"><img src="https://img.shields.io/badge/-Javascript-yellow?style=for-the-badge" alt="Javascript" /></a>
     <a href="https://www.npmjs.com/package/mongoose"><img src="https://img.shields.io/badge/-Mongoose-blueviolet?style=for-the-badge" alt="Mongoose" /></a>
     <a href="https://nodejs.org/en/"><img src="https://img.shields.io/badge/-Node-green?style=for-the-badge" alt="Node" /></a>
-    <a href="https://www.npmjs.com/package/express"><img src="https://img.shields.io/badge/-Express-blue?style=for-the-badge" alt="Express" /></a>
-    <a href="https://www.npmjs.com/package/workbox-cli"><img src="https://img.shields.io/badge/-Workbox-CLI-red?style=for-the-badge" alt="Workbox CLI" /></a>
-    <a href="https://www.npmjs.com/package/compression"><img src="https://img.shields.io/badge/-Compression-pink?style=for-the-badge" alt="Compression" /></a>
-    <a href="https://www.npmjs.com/package/lite-server"><img src="https://img.shields.io/badge/-lite-server-pink?style=for-the-badge" alt="Lite Server" /></a>
+    <a href="https://www.npmjs.com/package/express"><img src="https://img.shields.io/badge/-Express-lightblue?style=for-the-badge" alt="Express" /></a>
+    <a href="https://www.npmjs.com/package/workbox-cli"><img src="https://img.shields.io/badge/-workboxcli-red?style=for-the-badge" alt="WorkboxCLI" /></a>
+    <a href="https://www.npmjs.com/package/compression"><img src="https://img.shields.io/badge/-compression-pink?style=for-the-badge" alt="Compression" /></a>
+    <a href="https://www.npmjs.com/package/lite-server"><img src="https://img.shields.io/badge/-liteserver-darkgreen?style=for-the-badge" alt="LiteServer" /></a>
 </p>
 
 ## Questions
