@@ -21,4 +21,10 @@ module.exports = {
       handler: "StaleWhileRevalidate",
     },
   ],
+  ignoreURLParametersMatching: [
+		/^utm_/,
+		/^fbclid$/
+	],
+	
 };
+
