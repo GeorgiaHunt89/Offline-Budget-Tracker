@@ -29,6 +29,37 @@ async function getAllTransactions() {
   }
 }
 
+async function checkDatabase() {
+  console.log("check db ");
+
+  // Get all records from store and set to a variable
+  const getAll = await db.pending_transactions.toArray();
+  console.log(getAll);
+
+  // If there are items in the store, we need to bulk add them when we are back online
+  if (getAll.length > 0) {
+    fetch("/api/transaction/bulk", {
+      method: "POST",
+      body: JSON.stringify(getAll),
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then(async (res) => {
+        // If our returned response is not empty
+        if (res.length !== 0) {
+          // Open another transaction to transaction_database with the ability to read and write
+          await db.pending_transactions.delete();
+
+          console.log("Clearing store 🧹");
+        }
+      });
+  }
+}
+
 if (navigator.onLine) {
   getAllTransactions();
 }
+window.addEventListener("online", checkDatabase);
