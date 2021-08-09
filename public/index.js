@@ -40,6 +40,41 @@ function populateTable() {
   });
 }
 
+async function checkDatabase() {
+  console.log("check db ");
+
+  // Get all records from store and set to a variable
+  const getAll = await db.pending_transactions.where().toArray();
+  console.log(getAll);
+
+  // If there are items in the store, we need to bulk add them when we are back online
+  if (getAll.result.length > 0) {
+    fetch("/api/transaction/bulk", {
+      method: "POST",
+      body: JSON.stringify(getAll.result),
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((res) => {
+        // If our returned response is not empty
+        if (res.length !== 0) {
+          // Open another transaction to transaction_database with the ability to read and write
+          transaction = db.transaction(["transaction_database"], "readwrite");
+
+          // Assign the current store to a variable
+          const currentStore = transaction.objectStore("transaction_database");
+
+          // Clear existing entries because our bulk add was successful
+          currentStore.clear();
+          console.log("Clearing store 🧹");
+        }
+      });
+  }
+}
+
 function populateChart() {
   // copy array and reverse it
   let reversed = transactions.slice().reverse();
@@ -152,6 +187,4 @@ document.querySelector("#sub-btn").onclick = function () {
   sendTransaction(false);
 };
 
-if (navigator.onLine) {
-  getAllTransactions();
-}
+window.addEventListener("online", checkDatabase);
